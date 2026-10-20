@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: ai-agent
+  profiles:
+    active: local
+  ai:
+#    mcp:
+#      client:
+##        toolcallback:
+##          enabled: true
+##        enabled: true
+##        name: my-mcp-client
+##        version: 1.0.0
+#        request-timeout: 60s
+##        type: SYNC
+##        stdio:
+##          servers-configuration: classpath:mcp-servers.json
+#        sse:
+#          connections:
+#            server1:
+#              url: http://localhost:8127
+#            server2:
+#              url: https://mcp.amap.com
+#              sse-endpoint: /sse?key=YOUR_AMAP_MAPS_API_KEY
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+# springdoc-openapi ??????
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.yuanyu.aiagent.controller
+# knife4j
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
